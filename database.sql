@@ -7,3 +7,8 @@ CREATE TABLE raza (
         FOREIGN KEY (id_especie)
         REFERENCES especie(id_especie)
 );
+CREATE TABLE ciudad (
+    id_ciudad SERIAL PRIMARY KEY,
+    nombre_ciudad VARCHAR(100) NOT NULL,
+    codigo_ubigeo VARCHAR(10)
+);
