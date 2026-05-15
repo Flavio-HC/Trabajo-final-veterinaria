@@ -25,3 +25,8 @@ CREATE TABLE cliente (
         FOREIGN KEY (id_ciudad)
         REFERENCES ciudad(id_ciudad)
 );
+CREATE TABLE especie (
+    id_especie SERIAL PRIMARY KEY,
+    nombre_especie VARCHAR(50) NOT NULL,
+    descripcion TEXT
+);
