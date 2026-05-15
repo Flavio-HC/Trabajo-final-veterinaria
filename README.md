@@ -4,3 +4,4 @@ Github Trabajo para base de datos
 -Flavio Hancco Chaiña
 -Jhossue Jheremy Miguel
 -Gadiel González Pamo
+-Julio Gómez Vilca
