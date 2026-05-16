@@ -42,3 +42,15 @@ CREATE TABLE consulta (
     FOREIGN KEY (id_cita)
     REFERENCES cita(id_cita)
 );
+CREATE TABLE pago (
+    id_pago SERIAL PRIMARY KEY,
+    id_cliente INTEGER NOT NULL,
+    fecha_emision DATE NOT NULL,
+    monto_total NUMERIC(10,2) NOT NULL,
+    estado_pago VARCHAR(50) NOT NULL,
+    metodo_pago VARCHAR(50) NOT NULL,
+
+    CONSTRAINT fk_pago_cliente
+    FOREIGN KEY (id_cliente)
+    REFERENCES cliente(id_cliente)
+);
