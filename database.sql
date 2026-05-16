@@ -88,3 +88,18 @@ CREATE TABLE medicamento (
     precio_unitario DECIMAL(10,2) NOT NULL,
     fecha_vencimiento DATE NOT NULL
 );
+CREATE TABLE detalle_pago (
+    id_detalle_pago SERIAL PRIMARY KEY,
+    id_pago INTEGER NOT NULL,
+    id_consulta INTEGER NOT NULL,
+    descripcion VARCHAR(100) NOT NULL,
+    subtotal NUMERIC(10,2) NOT NULL,
+
+    CONSTRAINT fk_detalle_pago_pago
+    FOREIGN KEY (id_pago)
+    REFERENCES pago(id_pago),
+
+    CONSTRAINT fk_detalle_pago_consulta
+    FOREIGN KEY (id_consulta)
+    REFERENCES consulta(id_consulta)
+);
