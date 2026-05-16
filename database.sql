@@ -30,3 +30,15 @@ CREATE TABLE especie (
     nombre_especie VARCHAR(50) NOT NULL,
     descripcion TEXT
 );
+CREATE TABLE consulta (
+    id_consulta SERIAL PRIMARY KEY,
+    fecha DATE NOT NULL,
+    diagnostico VARCHAR(100) NOT NULL,
+    constantes VARCHAR(100),
+    observaciones TEXT,
+    id_cita INTEGER NOT NULL,
+
+    CONSTRAINT fk_consulta_cita
+    FOREIGN KEY (id_cita)
+    REFERENCES cita(id_cita)
+);
