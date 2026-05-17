@@ -134,3 +134,10 @@ CREATE TABLE det_cons_serv (
         FOREIGN KEY (id_servicio)
         REFERENCES servicio(id_servicio)
 );
+CREATE TABLE veterinario (
+    id_veterinario SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    colegiatura VARCHAR(50) NOT NULL UNIQUE,
+    especialidad VARCHAR(100) NOT NULL,
+    turno VARCHAR(50) NOT NULL
+);
