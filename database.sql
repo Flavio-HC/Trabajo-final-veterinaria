@@ -103,3 +103,34 @@ CREATE TABLE detalle_pago (
     FOREIGN KEY (id_consulta)
     REFERENCES consulta(id_consulta)
 );
+CREATE TABLE diagnostico (
+    id_diagnostico SERIAL PRIMARY KEY,
+    descripcion TEXT NOT NULL,
+    gravedad VARCHAR(50) NOT NULL,
+    fecha DATE NOT NULL,
+    id_consulta INT NOT NULL,
+
+    CONSTRAINT fk_diagnostico_consulta
+        FOREIGN KEY (id_consulta)
+        REFERENCES consulta(id_consulta)
+);
+
+CREATE TABLE servicio (
+    id_servicio SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    descripcion TEXT
+);
+
+CREATE TABLE det_cons_serv (
+    id_consulta INT NOT NULL,
+    id_servicio INT NOT NULL,
+
+    PRIMARY KEY (id_consulta, id_servicio),
+    CONSTRAINT fk_det_consulta
+        FOREIGN KEY (id_consulta)
+        REFERENCES consulta(id_consulta),
+    CONSTRAINT fk_det_servicio
+        FOREIGN KEY (id_servicio)
+        REFERENCES servicio(id_servicio)
+);
