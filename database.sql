@@ -141,3 +141,21 @@ CREATE TABLE veterinario (
     especialidad VARCHAR(100) NOT NULL,
     turno VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE mascota (
+    id_mascota SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    id_cliente INT NOT NULL,
+    id_raza INT NOT NULL,
+
+    CONSTRAINT fk_mascota_cliente
+        FOREIGN KEY (id_cliente)
+        REFERENCES cliente(id_cliente),
+        
+    CONSTRAINT fk_mascota_raza
+        FOREIGN KEY (id_raza)
+        REFERENCES raza(id_raza)
+);
