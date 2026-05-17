@@ -159,3 +159,20 @@ CREATE TABLE mascota (
         FOREIGN KEY (id_raza)
         REFERENCES raza(id_raza)
 );
+CREATE TABLE cita (
+    id_cita SERIAL PRIMARY KEY,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    motivo TEXT NOT NULL,
+    id_mascota INT NOT NULL,
+    id_veterinario INT NOT NULL,
+
+    CONSTRAINT fk_cita_mascota
+        FOREIGN KEY (id_mascota)
+        REFERENCES mascota(id_mascota),
+        
+    CONSTRAINT fk_cita_veterinario
+        FOREIGN KEY (id_veterinario)
+        REFERENCES veterinario(id_veterinario)
+);
