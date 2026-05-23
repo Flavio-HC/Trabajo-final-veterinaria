@@ -40,3 +40,10 @@ INSERT INTO servicio (nombre, precio, descripcion) VALUES
 ('Consulta General', 50.00, 'Chequeo médico'),
 ('Cirugía', 250.00, 'Intervención quirurgica'),
 ('Desparasitación', 50.00, 'Control de parásitos');
+
+INSERT INTO cita (fecha, hora, estado, motivo, id_mascota, id_veterinario) VALUES
+('2026-05-25', '09:00:00', 'Programada', 'Vacunación anual de Max', 1, 4),
+('2026-05-25', '10:30:00', 'Programada', 'Revisión dermatológica de Luna', 2, 2),
+('2026-05-26', '11:00:00', 'Atendida', 'Dolor en la pata de Rocky', 3, 1),
+('2026-05-26', '15:00:00', 'Programada', 'Chequeo general de Mishi', 4, 4),
+('2026-05-27', '16:30:00', 'Programada', 'Desparasitación de Bunny', 5, 5);
