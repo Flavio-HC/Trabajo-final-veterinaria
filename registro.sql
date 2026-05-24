@@ -47,3 +47,7 @@ INSERT INTO cita (fecha, hora, estado, motivo, id_mascota, id_veterinario) VALUE
 ('2026-05-26', '11:00:00', 'Atendida', 'Dolor en la pata de Rocky', 3, 1),
 ('2026-05-26', '15:00:00', 'Programada', 'Chequeo general de Mishi', 4, 4),
 ('2026-05-27', '16:30:00', 'Programada', 'Desparasitación de Bunny', 5, 5);
+
+UPDATE cita
+SET estado = 'Atendida'
+WHERE id_cita = 1;
