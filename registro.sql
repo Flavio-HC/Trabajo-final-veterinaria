@@ -47,3 +47,17 @@ INSERT INTO cita (fecha, hora, estado, motivo, id_mascota, id_veterinario) VALUE
 ('2026-05-26', '11:00:00', 'Atendida', 'Dolor en la pata de Rocky', 3, 1),
 ('2026-05-26', '15:00:00', 'Programada', 'Chequeo general de Mishi', 4, 4),
 ('2026-05-27', '16:30:00', 'Programada', 'Desparasitación de Bunny', 5, 5);
+-TABLA CONSULTA
+INSERT INTO consulta(fecha,diagnostico,constantes,observaciones,id_cita)VALUES
+('25-05-20026','Saludable, inyeccion','FC: 85, FR: 20, Temp: 38.5','Vacunación aplicada correctamente',1),
+('15-05-20026','Dermatitis alérgica','FC: 90, FR: 22, Temp: 38.8','Presenta enrojecimiento en zona abdominal',2),
+('01-05-20026','Esguince leve en la pata delantera', 'FC: 100, FR: 25, Temp: 39.0','Dolor al roce, reposo obligatorio',3),
+('25-05-20026','Saludable','FC: 80, FR: 18, Temp: 38.2','Chequeo conforme',4),
+('15-05-20026','Parasitosis leve','FC: 88, FR: 20, Temp: 38.6','Se administra desparasitante en consulta',5);
+-TABLA DIAGNOSTICO
+INSERT INTO diagnostico (descripcion, gravedad, fecha, id_consulta) VALUES
+('Paciente sano','Ninguna','25-05-20026',1),
+('Dermatitis por contacto','Leve','15-05-20026',2),
+('esguince grado 1','Moderada','01-05-20026',3),
+('Paciente sano','Ninguna','25-05-20026',4),
+('Presencia de parásitos','Leve','15-05-20026',5);
