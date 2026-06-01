@@ -6,7 +6,7 @@ Github Trabajo para base de datos.
 #**Integrantes**
 
 - Flavio Hancco Chaiña
-- Jhossue Jheremy Miguel
+- Jhossue Jheremy Miguel Miguel Garcia (imoshu)
 - Gadiel González Pamo
 - Julio Gómez Vilca
 
