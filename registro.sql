@@ -11,29 +11,42 @@ INSERT INTO raza (nombre_raza, id_especie) VALUES
 ('Siamés', 2),
 ('Persa', 2),
 ('Conejo Enano', 3);
+
 INSERT INTO ciudad (nombre_ciudad, codigo_ubigeo) VALUES
-('Arequipa', '040101'),('Lima', '150101'),('Cusco', '080101'),('Tacna', '230101'),('Trujillo', '130101');
+('Arequipa', '040101'),
+('Lima', '150101'),
+('Cusco', '080101'),
+('Tacna', '230101'),
+('Trujillo', '130101');
+
 INSERT INTO cliente (dni, nombre, apellidos, telefono, direccion, id_ciudad) VALUES
-('12345678', 'Juan', 'Pérez', '987654321', 'Av. Perú 123', 1) , ('23456789', 'Lucía', 'Gómez', '987654322', 'Calle Lima 456', 2) , ('34567890', 'Pedro', 'Ramírez', '987654323', 'Jr. Sol 789', 3) , ('45678901', 'María', 'Fernández', '987654324', 'Av. Grau 321', 4) , ('56789012', 'José', 'Torres', '987654325', 'Calle Norte 654', 5);
+('12345678', 'Juan', 'Pérez', '987654321', 'Av. Perú 123', 1),
+('23456789', 'Lucía', 'Gómez', '987654322', 'Calle Lima 456', 2),
+('34567890', 'Pedro', 'Ramírez', '987654323', 'Jr. Sol 789', 3),
+('45678901', 'María', 'Fernández', '987654324', 'Av. Grau 321', 4),
+('56789012', 'José', 'Torres', '987654325', 'Calle Norte 654', 5);
 
 INSERT INTO mascota (nombre, fecha_nacimiento, genero, estado, id_cliente, id_raza) VALUES
-('Max', '2021-05-10', 'Macho', 'Activo', 1, 1), ('Luna', '2020-03-15', 'Hembra', 'Activo', 2, 3), ('Rocky', '2019-07-20', 'Macho', 'En tratamiento', 3, 2), ('Mishi', '2022-01-11', 'Hembra', 'Activo', 4, 4), ('Bunny', '2023-02-18', 'Macho', 'Activo', 5, 5);
+('Max', '2021-05-10', 'Macho', 'Activo', 1, 1),
+('Luna', '2020-03-15', 'Hembra', 'Activo', 2, 3),
+('Rocky', '2019-07-20', 'Macho', 'Activo', 3, 2),
+('Mishi', '2022-01-11', 'Hembra', 'Activo', 4, 4),
+('Bunny', '2023-02-18', 'Macho', 'Activo', 5, 5);
 
--TABLA VETERINARIO
 INSERT INTO veterinario (nombre, colegiatura, especialidad, turno) VALUES
 ('Carlos Gomez', 'COL001', 'Cirugía', 'Mañana'),
 ('Pedro Torres', 'COL002', 'Dermatología', 'Tarde'),
 ('Luis Ramos', 'COL003', 'Odontología', 'Noche'),
 ('Maria Paredes', 'COL004', 'Medicina General', 'Mañana'),
-('Jose Quispe', 'COL005', 'Cardiología', 'Tarde')
--TABLA MEDICAMENTO
+('Jose Quispe', 'COL005', 'Cardiología', 'Tarde');
+
 INSERT INTO medicamento (nombre, stock, precio_unitario, fecha_vencimiento) VALUES
 ('Paracetamol Vet', 50, 12.50, '2027-01-10'),
 ('Antibiótico Can', 30, 25.00, '2026-12-15'),
 ('Vitaminas Pet', 100, 8.90, '2028-05-20'),
 ('Vacuna Triple', 40, 45.00, '2027-08-11'),
 ('Desparasitante', 60, 15.75, '2026-11-30');
--TABLA SERVICIO
+
 INSERT INTO servicio (nombre, precio, descripcion) VALUES
 ('Baño', 50.00, 'Baño y limpieza'),
 ('Vacunación', 50.00, 'Aplicación de vacunas'),
@@ -42,22 +55,22 @@ INSERT INTO servicio (nombre, precio, descripcion) VALUES
 ('Desparasitación', 50.00, 'Control de parásitos');
 
 INSERT INTO cita (fecha, hora, estado, motivo, id_mascota, id_veterinario) VALUES
-('2026-05-25', '09:00:00', 'Programada', 'Vacunación anual de Max', 1, 4),
-('2026-05-25', '10:30:00', 'Programada', 'Revisión dermatológica de Luna', 2, 2),
-('2026-05-26', '11:00:00', 'Atendida', 'Dolor en la pata de Rocky', 3, 1),
-('2026-05-26', '15:00:00', 'Programada', 'Chequeo general de Mishi', 4, 4),
-('2026-05-27', '16:30:00', 'Programada', 'Desparasitación de Bunny', 5, 5);
--TABLA CONSULTA
-INSERT INTO consulta(fecha,diagnostico,constantes,observaciones,id_cita)VALUES
-('25-05-20026','Saludable, inyeccion','FC: 85, FR: 20, Temp: 38.5','Vacunación aplicada correctamente',1),
-('15-05-20026','Dermatitis alérgica','FC: 90, FR: 22, Temp: 38.8','Presenta enrojecimiento en zona abdominal',2),
-('01-05-20026','Esguince leve en la pata delantera', 'FC: 100, FR: 25, Temp: 39.0','Dolor al roce, reposo obligatorio',3),
-('25-05-20026','Saludable','FC: 80, FR: 18, Temp: 38.2','Chequeo conforme',4),
-('15-05-20026','Parasitosis leve','FC: 88, FR: 20, Temp: 38.6','Se administra desparasitante en consulta',5);
--TABLA DIAGNOSTICO
+('2026-05-25', '09:00:00', 'Agendada', 'Vacunación anual de Max', 1, 4),
+('2026-05-25', '10:30:00', 'Agendada', 'Revisión dermatológica de Luna', 2, 2),
+('2026-05-26', '11:00:00', 'Completada', 'Dolor en la pata de Rocky', 3, 1),
+('2026-05-26', '15:00:00', 'Agendada', 'Chequeo general de Mishi', 4, 4),
+('2026-05-27', '16:30:00', 'Agendada', 'Desparasitación de Bunny', 5, 5);
+
+INSERT INTO consulta (fecha, constantes, observaciones, id_cita) VALUES
+('2026-05-25', 'FC: 85, FR: 20, Temp: 38.5', 'Vacunación aplicada correctamente', 1),
+('2026-05-15', 'FC: 90, FR: 22, Temp: 38.8', 'Presenta enrojecimiento en zona abdominal', 2),
+('2026-05-01', 'FC: 100, FR: 25, Temp: 39.0', 'Dolor al roce, reposo obligatorio', 3),
+('2026-05-25', 'FC: 80, FR: 18, Temp: 38.2', 'Chequeo conforme', 4),
+('2026-05-15', 'FC: 88, FR: 20, Temp: 38.6', 'Se administra desparasitante en consulta', 5);
+
 INSERT INTO diagnostico (descripcion, gravedad, fecha, id_consulta) VALUES
-('Paciente sano','Ninguna','25-05-20026',1),
-('Dermatitis por contacto','Leve','15-05-20026',2),
-('esguince grado 1','Moderada','01-05-20026',3),
-('Paciente sano','Ninguna','25-05-20026',4),
-('Presencia de parásitos','Leve','15-05-20026',5);
+('Paciente sano', 'Leve', '2026-05-25', 1),
+('Dermatitis por contacto', 'Leve', '2026-05-15', 2),
+('Esguince grado 1', 'Moderada', '2026-05-01', 3),
+('Paciente sano', 'Leve', '2026-05-25', 4),
+('Presencia de parásitos', 'Leve', '2026-05-15', 5);
