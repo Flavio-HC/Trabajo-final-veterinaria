@@ -1,0 +1,13 @@
+{
+  "name": "veterinaria-backend",
+  "version": "1.0.0",
+  "description": "Backend de la veterinaria",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  }
+}
