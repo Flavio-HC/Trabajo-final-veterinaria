@@ -74,4 +74,25 @@ router.get('/mascotas-especie', async (req, res) => {
     }
 });
 
+router.get('/diagnosticos-gravedad', async (req, res) => {
+
+    const query = `
+        SELECT
+            gravedad,
+            COUNT(id_diagnostico) AS total_diagnosticos
+        FROM diagnostico
+        GROUP BY gravedad
+        HAVING COUNT(id_diagnostico) >= 1
+        ORDER BY total_diagnosticos DESC;
+    `;
+
+    try {
+        const result = await pool.query(query);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al obtener reporte' });
+    }
+});
+
 module.exports = router;
