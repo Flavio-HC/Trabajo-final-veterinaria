@@ -26,4 +26,27 @@ router.get('/veterinarios', async (req, res) => {
     }
 });
 
+router.get('/clientes-ciudad', async (req, res) => {
+
+    const query = `
+        SELECT
+            ci.nombre_ciudad,
+            COUNT(cl.id_cliente) AS total_clientes
+        FROM ciudad ci
+        INNER JOIN cliente cl
+            ON ci.id_ciudad = cl.id_ciudad
+        GROUP BY ci.id_ciudad, ci.nombre_ciudad
+        HAVING COUNT(cl.id_cliente) >= 1
+        ORDER BY total_clientes DESC;
+    `;
+
+    try {
+        const result = await pool.query(query);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al obtener reporte' });
+    }
+});
+
 module.exports = router;
