@@ -49,4 +49,29 @@ router.get('/clientes-ciudad', async (req, res) => {
     }
 });
 
+router.get('/mascotas-especie', async (req, res) => {
+
+    const query = `
+        SELECT
+            e.nombre_especie,
+            COUNT(m.id_mascota) AS total_mascotas
+        FROM especie e
+        INNER JOIN raza r
+            ON e.id_especie = r.id_especie
+        INNER JOIN mascota m
+            ON r.id_raza = m.id_raza
+        GROUP BY e.id_especie, e.nombre_especie
+        HAVING COUNT(m.id_mascota) >= 1
+        ORDER BY total_mascotas DESC;
+    `;
+
+    try {
+        const result = await pool.query(query);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al obtener reporte' });
+    }
+});
+
 module.exports = router;
