@@ -22,7 +22,7 @@ router.get('/veterinarios', async (req, res) => {
         res.json(result.rows);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error al obtener reporte' });
+        res.status(500).json({ error: error.message });
     }
 });
 
