@@ -95,4 +95,38 @@ router.get('/diagnosticos-gravedad', async (req, res) => {
     }
 });
 
+const { Parser } = require('json2csv');
+
+router.get('/veterinarios-csv', async (req, res) => {
+
+    const query = `
+        SELECT
+            v.nombre,
+            v.especialidad,
+            COUNT(c.id_cita) AS total_citas
+        FROM veterinario v
+        JOIN cita c
+            ON v.id_veterinario = c.id_veterinario
+        GROUP BY v.id_veterinario, v.nombre, v.especialidad
+        HAVING COUNT(c.id_cita) >= 1
+        ORDER BY total_citas DESC;
+    `;
+
+    try {
+        const result = await pool.query(query);
+
+        const parser = new Parser();
+        const csv = parser.parse(result.rows);
+
+        res.header('Content-Type', 'text/csv');
+        res.attachment('reporte_veterinarios.csv');
+
+        return res.send(csv);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = router;
