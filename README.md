@@ -70,3 +70,7 @@ GET /reportes/veterinarios-csv
 → Exporta el reporte de veterinarios en formato CSV
 
 ---
+### CRUD Complejos  (Los endpoints de CRUD complejos implementan transacciones ACID)
+- POST /crud/consulta-completa → Registra cita + consulta + diagnóstico + tratamiento
+- PUT /crud/cita/:id/estado → Actualiza estado de cita y genera consulta vinculada
+- DELETE /crud/mascota/:id → Elimina mascota y todo su historial en cascada
