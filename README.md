@@ -7,7 +7,7 @@ Github Trabajo para base de datos.
 
 - Flavio Hancco Chaiña (Flavio-HC)
 - Jhossue Jheremy Miguel Miguel Garcia (imoshu)
-- Gadiel González Pamo
+- Gadiel González Pamo(Ultrones09)
 - Julio Gómez Vilca (ggarux)
 
 Se trabajaron 16 entidades en el proyecto
