@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+const { Parser } = require('json2csv');
 
 router.get('/veterinarios', async (req, res) => {
 
@@ -94,8 +95,6 @@ router.get('/diagnosticos-gravedad', async (req, res) => {
         res.status(500).json({ error: 'Error al obtener reporte' });
     }
 });
-
-const { Parser } = require('json2csv');
 
 router.get('/veterinarios-csv', async (req, res) => {
 
