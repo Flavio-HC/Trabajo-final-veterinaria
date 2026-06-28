@@ -121,18 +121,20 @@ router.get('/mascotas-especie-csv', async (req, res) => {
     `;
 
     try {
-
         const result = await pool.query(query);
 
-        const parser = new Parser();
+        const parser = new Parser({
+            delimiter: ';'
+        });
+
         const csv = parser.parse(result.rows);
 
-        res.header('Content-Type', 'text/csv');
+        res.header('Content-Type', 'text/csv; charset=utf-8');
         res.attachment('reporte_mascotas_especie.csv');
 
-        res.send(csv);
+        return res.send('\uFEFF' + csv);
 
-    } catch (error) {
+        } catch (error) {
 
         console.error(error);
         res.status(500).json({ error: error.message });
