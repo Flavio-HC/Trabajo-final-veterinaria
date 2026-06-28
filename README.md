@@ -50,24 +50,33 @@ npm start
 
 ## Reportes principales
 
-GET /reportes/veterinarios  
-→ Veterinarios con número de citas atendidas
+Reportes principales
 
-GET /reportes/clientes-ciudad  
-→ Clientes agrupados por ciudad
+El backend implementa endpoints REST para la generación de reportes utilizando consultas SQL sobre PostgreSQL.
 
-GET /reportes/mascotas-especie  
-→ Cantidad de mascotas por especie
-
-GET /reportes/diagnosticos-gravedad  
-→ Diagnósticos según nivel de gravedad
+Reportes disponibles
+Método	Endpoint	Descripción
+GET	/reportes/veterinarios	Reporte de veterinarios con cantidad de citas atendidas.
+GET	/reportes/clientes-ciudad	Reporte de clientes agrupados por ciudad.
+GET	/reportes/mascotas-especie	Reporte de mascotas agrupadas por especie.
+GET	/reportes/diagnosticos-gravedad	Reporte de diagnósticos agrupados por gravedad.
 
 ---
 
 ## Exportación
 
-GET /reportes/veterinarios-csv  
-→ Exporta el reporte de veterinarios en formato CSV
+El sistema permite exportar un reporte detallado en formato CSV.
+
+Endpoint
+GET /reportes/mascotas-especie-csv
+Información exportada
+Especie
+Raza
+Nombre de la mascota
+Propietario
+Ciudad
+
+Este reporte utiliza cinco tablas relacionadas mediante consultas SQL con INNER JOIN (especie, raza, mascota, cliente y ciudad), permitiendo generar un archivo CSV con información consolidada para su posterior análisis.
 
 ---
 ### CRUD Complejos  (Los endpoints de CRUD complejos implementan transacciones ACID)
