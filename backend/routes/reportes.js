@@ -102,6 +102,7 @@ router.get('/mascotas-especie-csv', async (req, res) => {
         SELECT
             e.nombre_especie,
             r.nombre_raza,
+            CONCAT(c.nombre, ' ', c.apellidos) AS propietario,
             ci.nombre_ciudad,
             COUNT(m.id_mascota) AS total_mascotas
         FROM especie e
@@ -116,12 +117,12 @@ router.get('/mascotas-especie-csv', async (req, res) => {
         GROUP BY
             e.nombre_especie,
             r.nombre_raza,
+            CONCAT(c.nombre, ' ', c.apellidos),
             ci.nombre_ciudad
         HAVING
             COUNT(m.id_mascota) >= 1
         ORDER BY
-            total_mascotas DESC,
-            e.nombre_especie;
+            total_mascotas DESC;
     `;
 
     try {
